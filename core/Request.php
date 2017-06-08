@@ -6,7 +6,7 @@ class Request{
     static function route()
     {
         // контроллер и действие по умолчанию
-        $controller_name = 'main';
+        $controller_name = 'admin';
         $action_name = 'index';
 
         $vars = [];
