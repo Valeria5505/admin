@@ -15,9 +15,8 @@ abstract class Model
     function getById($id)
     {
 
-        $stmt = DB::getInstance()->prepare("SELECT * FROM " . $this->tableName. " WHERE id =:id");
+        $stmt = DB::getInstance()->prepare("SELECT * FROM " . $this->tableName. " WHERE id =".$id);
 
-        $stmt->bindValue(':id', $id);
         $stmt->execute();
         $data = $stmt->fetch();
 

@@ -32,11 +32,13 @@
                     <h3>Объем дискового пространства:</h3>
                     <div>
                         <div>- Всего</div>
-                        <div>3000<?disk_total_space("C:")?></div>
+                        <div>3000</div>
+<!--                        --><?//disk_total_space("C:")?>
                     </div>
                     <div>
                         <div>- Свободно</div>
-                        <div>400<?disk_free_space("C:")?></div>
+                        <div>400</div>
+<!--                        --><?//disk_free_space("C:")?>
                     </div>
                     <div>
                         <div>- Занято проектами</div>
@@ -688,7 +690,8 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title">Детальная информация о проекте <?=$detailProject["subdomain"]?></h4>
+                <h4 class="modal-title">Детальная информация о проекте </h4>
+<!--                --><?//=$detailProject["subdomain"]?>
             </div>
             <form>
                 <div class="modal-body componDetailPr">
