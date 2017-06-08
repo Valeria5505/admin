@@ -531,7 +531,7 @@
                                 <input type="text" id="edit_name_curator" name="name_curator" value=""/><br>
                                 Статус куратора<br>
                                 <p class="edit_status_curator">
-                                    <input type="radio" name="status" value="1"> Активный<Br>
+                                    <input type="radio" name="status" value="1"> Активный!!!!<Br>
                                     <input type="radio" name="status" value="0"> Не активный<Br>
                                 </p>
 
