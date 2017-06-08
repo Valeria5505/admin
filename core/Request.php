@@ -43,7 +43,6 @@ class Request{
 
             include "application/controllers/Admin.php";
         }
-var_dump($controller_name);
         // создаем контроллер
         $controller = new $controller_name;
 
