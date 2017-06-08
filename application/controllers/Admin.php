@@ -19,7 +19,7 @@ class Admin extends Core\Controller{
         $countUsers = $this->modelUsers->count();
         $countCurator = $this->modelCurator->count();
         $lestConstants = $this->modelConstants->getById(1);
-
+var_dump(11111);
         ///Проекты
             /// Все проекты
         $listProjects = $this->modelProject->getList();
