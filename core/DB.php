@@ -19,7 +19,9 @@ class DB
 
 	private  function __construct()
 	{
-        $this->pdo = new \PDO('mysql:host=localhost;dbname=host-test;charset=UTF8;', 'root', '');
+        $dbconfig = require('db_params.php');
+        $this->pdo = new \PDO('mysql:host=$dbconfig["host"];dbname=$dbconfig["db"];charset=UTF8;', '$dbconfig["root"]', '$dbconfig["password"]');
+        //$this->pdo = new \PDO('mysql:host=localhost;dbname=host-test;charset=UTF8;', 'root', '');
 	}
 
 	private function __clone()
