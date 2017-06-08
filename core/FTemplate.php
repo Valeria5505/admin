@@ -25,7 +25,7 @@ class FTemplate implements Interfaces\iTemplate
 
         extract($this->vars);
 
-        include($_SERVER['DOCUMENT_ROOT'] .'application/templates/'.$this->name.'.php');
+        include('application/templates/'.$this->name.'.php');
 
         $content = ob_get_clean();
 

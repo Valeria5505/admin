@@ -1,4 +1,4 @@
-<?require_once ($_SERVER['DOCUMNET_ROOT'].'/application/templates/header.php');?>
+<?require_once ('header.php');?>
 
 <div class="container">
     <ul class="nav nav-tabs">
@@ -690,5 +690,5 @@
         </div>
     </div>
 </div>
-<?require_once ($_SERVER['DOCUMNET_ROOT'].'/application/templates/footer.php');?>
+<?require_once ('footer.php');?>
 

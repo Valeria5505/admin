@@ -15,7 +15,7 @@ require_once ('application/models/Release.php');
 
 try{
 	
-	$app = \Core\Application::getInstance();
+	$app = Core\Application::getInstance();
 	$app->run();
 	
 }catch(\Exception $e){
