@@ -12,7 +12,7 @@ class Request{
         $vars = [];
 
         $url = parse_url($_SERVER['REQUEST_URI']);
-        $routes = explode('/', trim($url['path'], '/'));
+        $routes = explode('/var/www/p38/', trim($url['path'], '/'));
 
         // получаем имя контроллера
         if ( !empty($routes[0]) )
@@ -43,7 +43,7 @@ class Request{
 
             include "application/controllers/Admin.php";
         }
-
+var_dump($controller_name);
         // создаем контроллер
         $controller = new $controller_name;
 
