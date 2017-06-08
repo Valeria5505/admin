@@ -12,7 +12,7 @@ class Request{
         $vars = [];
 
         $url = parse_url($_SERVER['REQUEST_URI']);
-        $routes = explode('/', trim($url['path'], '/'));
+        $routes = explode('http://p38.itstudent.nsuem.ru/', trim($url['path'], '/'));
 
         // получаем имя контроллера
         if ( !empty($routes[0]) )
