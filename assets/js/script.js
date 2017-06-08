@@ -1,3 +1,32 @@
+//$('body').css('display','none');
+
+function exit()
+{
+    delete window.localStorage['pass'];
+    $('#my_container').css('display','none');
+    $('#my_container').html('');
+  //  window.location='./';
+}
+function start()
+{
+    if(window.localStorage['pass']==5505)
+    {
+        $('#my_container').css('display','block');
+    }
+    else
+    {
+        if(prompt('Дурак введи пароль')==5505)
+        {
+            window.localStorage['pass']=5505;
+            $('#my_container').css('display','block');
+        }
+        else{
+            alert('Иди отсюда мой посуду!');
+            // window.location='./';
+        }
+    }
+}
+//exit();
 function open(FormOpen){
 
     document.querySelector(FormOpen).classList.remove("hidden");
@@ -31,13 +60,19 @@ function addProjectUser(item) {
     $("#user_project").append(str);
 
 }
+$('.exit').click(  function(){
+    exit();
+});
+$('.start').click(  function(){
+    window.location='./';
+});
 function addRelease(item) {
 
     $(".release_table").append("<tr class='listRelease_"+ item["id"] +"'><td>"+ item["subdomain"] +"</td><td>"+ item["date_time"] +"</td><td>"+ item["release_type"] +"</td><td>"+ item["log"] +"</td></tr>");
 
 }
 function addCurator(item) {
-    if(item['status_curator']==0)
+    if(item['status']==0)
     {
         str1='<td></td>';
     }
@@ -233,7 +268,7 @@ $('.curator_table').on('click', '.editCurator', function(){
     var edit_id_temp = $(this).attr('edit_id');
     $('#edit_id_curator').val(edit_id_temp);
     $('#edit_name_curator').val($('#name_curator_'+edit_id_temp).text());
-    $('.status_curator').val($('.status_curator_'+edit_id_temp).text());
+    $('input[name=status][value='+$('.status_curator_'+edit_id_temp).text()+']').prop('checked',true);
     $('#edit_email_curator').val($('#email_curator_'+edit_id_temp).text());
 });
 $('#edit_button').click(function () {
@@ -322,7 +357,7 @@ $('.detailProject').click(function () {
         dataType:'json',
         data : itemData,
         success: function (data) {
-           // $(".componDetailPr").append('<div class="row">            <div class="col-xs-6">Домен</div>                <div class="col-xs-6">'+date['subdomain']+'</div>            </div><br>            <div class="row">                <div class="col-xs-6">Название проекта</div>            <div class="col-xs-6">'+date['name']+'</div>            </div><br>            <div class="row">                <div class="col-xs-6">Дата добавления</div>            <div class="col-xs-6">'+date['date_add']+'</div>            </div><br>            <div class="row">                <div class="col-xs-6">Дата изменения</div>            <div class="col-xs-6">'+date['date_check']+'</div>            </div><br>            <div class="row">                <div class="col-xs-6">GitHub</div>                <div class="col-xs-6">'+date['git']+'</div>            </div><br>            <div class="row">                <div class="col-xs-6">Пользователь</div>                <div class="col-xs-6">'+date['email_user']+' '+ date['group']+'</div>            </div><br>            <div class="row">                <div class="col-xs-6">Статус</div>                <div class="col-xs-6">'+date['status_project']+'</div>            </div><br>            <div class="row">                <div class="col-xs-6">Куратор</div>                <div class="col-xs-6">'+date['name_curator']+'</div>            </div><br>            <div class="row">                <div class="col-xs-6">Логи</div>                <div class="col-xs-12">                </div>                </div><br>');
+           $(".componDetailPr").html('<div class="row">            <div class="col-xs-6">Домен</div>                <div class="col-xs-6">'+data['subdomain']+'</div>            </div><br>            <div class="row">                <div class="col-xs-6">Название проекта</div>            <div class="col-xs-6">'+data['name']+'</div>            </div><br>            <div class="row">                <div class="col-xs-6">Дата добавления</div>            <div class="col-xs-6">'+data['date_add']+'</div>            </div><br>            <div class="row">                <div class="col-xs-6">Дата изменения</div>            <div class="col-xs-6">'+data['date_check']+'</div>            </div><br>            <div class="row">                <div class="col-xs-6">GitHub</div>                <div class="col-xs-6">'+data['git']+'</div>            </div><br>            <div class="row">                <div class="col-xs-6">Пользователь</div>                <div class="col-xs-6">'+data['email_user']+' '+ data['group']+'</div>            </div><br>            <div class="row">                <div class="col-xs-6">Статус</div>                <div class="col-xs-6">'+data['status_project']+'</div>            </div><br>            <div class="row">                <div class="col-xs-6">Куратор</div>                <div class="col-xs-6">'+data['name_curator']+'</div>            </div><br>            <div class="row">                <div class="col-xs-6">Логи</div>                <div class="col-xs-12">                </div>                </div><br>');
 
         }
     });

@@ -28,8 +28,10 @@
 
         var data = google.visualization.arrayToDataTable([
             ['Task', 'Hours per Day'],
-            ['Занято',     20],
-            ['Свободно',      80]
+            ['Базы данных',     <?=$sizeDatabase[0]["SUM(size)"]?>],
+            ['Проекты',     <?=$sizeProject[0]["SUM(files_size)"]?>],
+            ['Свободно',      400],
+            ['Система',      (<?=3000-(400+$sizeDatabase[0]["SUM(size)"]+$sizeProject[0]["SUM(files_size)"])?>)],
         ]);
 
         var options = {
@@ -41,7 +43,10 @@
         chart.draw(data, options);
     }
 </script>
-<script src="assets/js/script.js"></script>
+<script id="my_code" src="assets/js/script.js"></script>
+<script>
+    start();
+</script>
 </body>
 
 </html>

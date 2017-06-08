@@ -46,4 +46,14 @@ class Project extends Core\Model{
         $data = $stmt->fetchAll();
         return $data;
     }
+    function sizeProject()
+    {
+        $size = DB::getInstance()->prepare("SELECT SUM(files_size) FROM " . $this->tableName);
+
+        $size->execute();
+
+        $data = $size->fetchAll();
+
+        return $data;
+    }
 }

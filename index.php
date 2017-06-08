@@ -12,6 +12,7 @@ require_once ('application/models/Project.php');
 require_once ('application/models/Curator.php');
 require_once ('application/models/Constants.php');
 require_once ('application/models/Release.php');
+require_once ('application/models/Database.php');
 
 try{
 	

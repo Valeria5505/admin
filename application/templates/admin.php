@@ -1,6 +1,6 @@
 <?require_once ('header.php');?>
 
-<div class="container">
+<div class="container" id="my_container" style="display: none">
     <ul class="nav nav-tabs">
         <li class="active"><a href="#statistics" data-toggle="tab">Статистика</a></li>
         <li><a href="#project" data-toggle="tab">Проекты</a></li>
@@ -32,11 +32,19 @@
                     <h3>Объем дискового пространства:</h3>
                     <div>
                         <div>- Всего</div>
-                        <div><?echo $lestConstants["total_size"]?></div>
+                        <div>3000<?disk_total_space("C:")?></div>
                     </div>
                     <div>
-                        <div>- Занято</div>
-                        <div>150</div>
+                        <div>- Свободно</div>
+                        <div>400<?disk_free_space("C:")?></div>
+                    </div>
+                    <div>
+                        <div>- Занято проектами</div>
+                        <div><?=$sizeProject[0]["SUM(files_size)"]?></div>
+                    </div>
+                    <div>
+                        <div>- Занято Базами данных</div>
+                        <div><?=$sizeDatabase[0]["SUM(size)"]?></div>
                     </div>
                     <div>
                         <div>- Диаграмма</div>
@@ -684,6 +692,7 @@
             </div>
             <form>
                 <div class="modal-body componDetailPr">
+
                 </div>
 
             </form>

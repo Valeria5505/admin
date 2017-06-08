@@ -31,5 +31,12 @@
 <header>
     <div class="header">
         Подсистема управления веб-хостингом
+        <button title="Выйти" class='exit btn btn-danger' style="border-radius: 25px">
+            <span class="fa fa-power-off" aria-hidden="true"></span>
+        </button>
+        <button title="Войти" class='start btn btn-success' style="border-radius: 25px">
+            <span class="fa fa-power-off" aria-hidden="true"></span>
+        </button>
     </div>
+
 </header>

@@ -13,12 +13,16 @@ class Admin extends Core\Controller{
         $this->modelCurator = new Application\Models\Curator();
         $this->modelConstants = new Application\Models\Constants();
         $this->modelRelease = new Application\Models\Release();
+        $this->modelDatabase = new Application\Models\Database();
 
         ///Статистика
         $countProject = $this->modelProject->count();
         $countUsers = $this->modelUsers->count();
         $countCurator = $this->modelCurator->count();
-        $lestConstants = $this->modelConstants->getById(1);
+        //$lestConstants = $this->modelConstants->getById(1);
+        $sizeProject = $this->modelProject->sizeProject();
+        $sizeDatabase = $this->modelDatabase->sizeDatabase();
+
         ///Проекты
             /// Все проекты
         $listProjects = $this->modelProject->getList();
@@ -51,7 +55,9 @@ class Admin extends Core\Controller{
         $this->template->setVariable('countProject', $countProject);
         $this->template->setVariable('countUsers', $countUsers);
         $this->template->setVariable('countCurator', $countCurator);
-        $this->template->setVariable('lestConstants', $lestConstants);
+        $this->template->setVariable('sizeProject', $sizeProject);
+        $this->template->setVariable('sizeDatabase', $sizeDatabase);
+        //$this->template->setVariable('lestConstants', $lestConstants);
 
         ///Проекты
             /// Все проекты
