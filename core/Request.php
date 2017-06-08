@@ -41,7 +41,7 @@ class Request{
         else
         {
 
-            include "application/controllers/Main.php";
+            include "application/controllers/Admin.php";
         }
 
         // создаем контроллер
