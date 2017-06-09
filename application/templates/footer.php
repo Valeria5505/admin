@@ -25,13 +25,18 @@
     google.charts.setOnLoadCallback(drawChart);
 
     function drawChart() {
-
+        <?
+        $kb = 1024;
+        $mb = 1024 * $kb;
+        $disk_total = disk_total_space(".")/$mb;
+        $disk_free = disk_free_space(".")/$mb;
+        ?>
         var data = google.visualization.arrayToDataTable([
             ['Task', 'Hours per Day'],
             ['Базы данных',     <?=$sizeDatabase[0]["SUM(size)"]?>],
             ['Проекты',     <?=$sizeProject[0]["SUM(files_size)"]?>],
-            ['Свободно',      400],
-            ['Система',      (<?=3000-(400+$sizeDatabase[0]["SUM(size)"]+$sizeProject[0]["SUM(files_size)"])?>)],
+            ['Свободно',       <?=$disk_free?>],
+            ['Система',      (<?=$disk_total-($disk_free+$sizeDatabase[0]["SUM(size)"]+$sizeProject[0]["SUM(files_size)"])?>)],
         ]);
 
         var options = {

@@ -29,16 +29,20 @@
                     </div>
                 </div>
                 <div>
+                    <?
+                    $kb = 1024;
+                    $mb = 1024 * $kb;
+                    $disk_total = disk_total_space(".")/$mb;
+                    $disk_free = disk_free_space(".")/$mb;
+                    ?>
                     <h3>Объем дискового пространства:</h3>
                     <div>
                         <div>- Всего</div>
-                        <div>3000</div>
-<!--                        --><?//disk_total_space("C:")?>
+                        <div><?=$disk_total?></div>
                     </div>
                     <div>
                         <div>- Свободно</div>
-                        <div>400</div>
-<!--                        --><?//disk_free_space("C:")?>
+                        <div><?=$disk_free?></div>
                     </div>
                     <div>
                         <div>- Занято проектами</div>
