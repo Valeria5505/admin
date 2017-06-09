@@ -37,38 +37,10 @@ abstract class Model
         return $stmt;
     }
 
-//    function add($vars)
-//    {
-//        $fields = array_keys($vars);
-//        $params = array_map(function($param){
-//            return ":".$param."";
-//        }, $fields);
-//
-//        $columns = implode($fields, ', ');
-//        $strParams = implode($params, ', ');
-//
-//        $stmt = DB::getInstance()->prepare("INSERT INTO $this->tableName ($columns) VALUES ($strParams);");
-//        foreach($vars as $key=>$value) {
-//            $stmt->bindValue(':'.$key, $value);
-//        }
-//        $stmt->execute();
-//
-//        $result = DB::getInstance()->lastInsertId();
-//
-//        if($result){
-//            return $result;
-//        }
-//
-//        return false;
-//    }
-
-
-
     function count(){
         $stmt = DB::getInstance()->prepare("SELECT COUNT(*) FROM " . $this->tableName);
         $stmt->execute();
         $data = $stmt->fetch();
-        //var_dump($data);
         return $data;
     }
 

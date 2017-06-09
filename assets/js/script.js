@@ -1,11 +1,9 @@
-//$('body').css('display','none');
 
 function exit()
 {
     delete window.localStorage['pass'];
     $('#my_container').css('display','none');
     $('#my_container').html('');
-  //  window.location='./';
 }
 function start()
 {
@@ -22,11 +20,9 @@ function start()
         }
         else{
             alert('Пароль не верный, доступ закрыт');
-            // window.location='./';
         }
     }
 }
-//exit();
 function open(FormOpen){
 
     document.querySelector(FormOpen).classList.remove("hidden");
@@ -91,7 +87,6 @@ function editCurator(item) {
 function editUser(item) {
 
     $('#email_user_'+item['id']).text(item['email_user']);
-    //$('#password_user_'+item['id']).text(item['password_user']);
     $('#status_user_'+item['id']).text(item['status_user']);
 }
 
@@ -151,19 +146,6 @@ $('.userRelease').change(  function(){
             else
             {
                 $(".release_table").html("");
-                // $.ajax({
-                //     url: '/admin/listReleateMain',
-                //     type : 'POST',
-                //     dataType:'json',
-                //     data : itemData,
-                //     success: function (data) {
-                //         $(".release_table").html("");
-                //         for(var i = 0 ; i<data.length;i++)
-                //         {
-                //             addRelease(data[i]);
-                //         }
-                //     }
-                // });
             }
         }
     });
@@ -221,15 +203,12 @@ $('.curator_table').on('click', '.closeCurator', function(){
     var itemData = {
         id: $(this).attr('delete_id')
     };
-    console.log(itemData);
     $.ajax({
         url: 'admin/deleteCurator',
         type : 'POST',
         dataType:'json',
         data : itemData,
         success: function (data) {
-            console.log('.status_curator_'+data[0]['id']);
-            console.log(data[0]['status']);
             $('.status_curator_'+data[0]['id']).text(data[0]['status']);
             $('.deleteCurator_'+data[0]['id']).text("");
         }
@@ -301,7 +280,6 @@ $('.editUser').click(function(){
     var edit_id_temp = $(this).attr('edit_id_user');
     $('#edit_id_user').val(edit_id_temp);
     $('#edit_email_user').val($('#email_user_'+edit_id_temp).text());
-    //$('#edit_password_user').val($('#password_user_'+edit_id_temp).text());
     $('#edit_status_user').val($('#status_user_'+edit_id_temp).text());
 });
 
@@ -310,7 +288,6 @@ $('#edit_button_user').click(function () {
     var itemData = {
         id: this.form.id_user.value,
         email: this.form.email_user.value,
-      //  password: this.form.password_user.value,
         status: this.form.status_user.value
     };
     $.ajax({
@@ -357,8 +334,6 @@ $('.detailProject').click(function () {
         dataType:'json',
         data : itemData,
         success: function (data) {
-            console.log(data);
-            console.log(itemData);
             $.ajax({
                 url: 'admin/detailRelease',
                 type : 'POST',
@@ -370,7 +345,6 @@ $('.detailProject').click(function () {
                         var str = '<tr class="listRelease_'+data1[i]['id']+'"><td>'+data1[i]['subdomain']+'</td><td>'+data1[i]['date_time']+'</td><td>'+data1[i]['release_type']+'</td>                    <td>'+data1[i]['log']+'</td>                    </tr>';
                         var str1=str1+str;
                     }
-                    console.log(str1);
                     $str2 = '<table class="table table-striped">                <thead>                <tr>                <th>Субдомен</th>                <th>Дата и время</th>            <th>Тип</th>            <th>Лог</th>            </tr>            </thead>            <tbody class="release_table">  '+str1+'            </tbody>            </table>';
                     $(".componDetailPr").html('<div class="row">            <div class="col-xs-6">Домен</div>                <div class="col-xs-6">'+data['subdomain']+'</div>            </div><br>            <div class="row">                <div class="col-xs-6">Название проекта</div>            <div class="col-xs-6">'+data['name']+'</div>            </div><br>            <div class="row">                <div class="col-xs-6">Дата добавления</div>            <div class="col-xs-6">'+data['date_add']+'</div>            </div><br>            <div class="row">                <div class="col-xs-6">Дата изменения</div>            <div class="col-xs-6">'+data['date_check']+'</div>            </div><br>            <div class="row">                <div class="col-xs-6">GitHub</div>                <div class="col-xs-6">'+data['git']+'</div>            </div><br>            <div class="row">                <div class="col-xs-6">Пользователь</div>                <div class="col-xs-6">'+data['email_user']+' '+ data['group']+'</div>            </div><br>            <div class="row">                <div class="col-xs-6">Статус</div>                <div class="col-xs-6">'+data['status_project']+'</div>            </div><br>            <div class="row">                <div class="col-xs-6">Куратор</div>                <div class="col-xs-6">'+data['name_curator']+'</div>            </div><br>            <div class="row">                <div class="col-xs-6">Логи</div>                <div class="col-xs-12">       '+$str2+'         </div>                </div><br>');
                 }

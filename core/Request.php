@@ -49,7 +49,6 @@ class Request{
         if(method_exists($controller, $action_name))
         {
             // вызываем действие контроллера
-//				$controller->$action();
             call_user_func(array($controller, $action_name), $vars);
         }
         else

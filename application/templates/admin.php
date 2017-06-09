@@ -632,7 +632,6 @@
                             <div class="modal-body">
                                 <input type="text" id="edit_id_user" name="id_user" value="" style="display: none"/>
                                 e-mail пользователя<input type="text" id="edit_email_user" name="email_user" value=""/><br>
-<!--                                Пароль пользователя<input type="text" id="edit_password_user" name="password_user" value=""/><br>-->
                                 Статус пользователя<input type="text" id="edit_status_user" name="status_user" value=""/><br>
                             </div>
                             <div class="modal-footer">
@@ -662,8 +661,6 @@
                 </div>
                 <input type="button" id="add_date_release" value="Вывести релизы по дате"/>
             </form>
-
-            <!-- Инициализация виджета "Bootstrap datetimepicker" -->
 
             <table class="table table-striped">
                 <thead>
@@ -695,7 +692,6 @@
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                 <h4 class="modal-title">Детальная информация о проекте </h4>
-<!--                --><?//=$detailProject["subdomain"]?>
             </div>
             <form>
                 <div class="modal-body componDetailPr">

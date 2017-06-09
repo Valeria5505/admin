@@ -22,7 +22,7 @@
     <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
     <!-- 6. Подключить CSS виджета "Bootstrap datetimepicker" -->
     <link rel="stylesheet" href="assets/css/bootstrap-datetimepicker.min.css" />
-    <title>Страница администратора веб хостинга</title>
+    <title>Страница администратора веб хостинга ИТФ</title>
 
 </head>
 
@@ -30,7 +30,7 @@
 
 <header>
     <div class="header">
-        Подсистема управления веб-хостингом
+        Подсистема управления веб-хостингом ИТФ
         <button title="Выйти" class='exit btn btn-danger' style="border-radius: 25px">
             <span class="fa fa-power-off" aria-hidden="true"></span>
         </button>
