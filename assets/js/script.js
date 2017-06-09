@@ -280,7 +280,7 @@ $('.editUser').click(function(){
     var edit_id_temp = $(this).attr('edit_id_user');
     $('#edit_id_user').val(edit_id_temp);
     $('#edit_email_user').val($('#email_user_'+edit_id_temp).text());
-    $('#edit_status_user').val($('#status_user_'+edit_id_temp).text());
+    $('input[name=status][value='+$('#status_user_'+edit_id_temp).text()+']').prop('checked',true);
 });
 
 $('#edit_button_user').click(function () {
@@ -288,7 +288,7 @@ $('#edit_button_user').click(function () {
     var itemData = {
         id: this.form.id_user.value,
         email: this.form.email_user.value,
-        status: this.form.status_user.value
+        status: this.form.status.value
     };
     $.ajax({
         url: 'admin/editUser',
@@ -305,24 +305,6 @@ $('#edit_button_user').click(function () {
     });
 });
 
-$('.user_table').on('click', '.closeUser', function(){
-    if(!confirm("Вы уверены что хотите удалить пользователя?"))
-    {
-        return false;
-    }
-    var deleteID = $(this).attr('delete_id');
-    var itemData = {
-        id: deleteID
-    };
-    $.ajax({
-        url: 'admin/deleteUser',
-        type : 'POST',
-        data : itemData,
-        success: function (data) {
-            $('.listUsers_'+deleteID).remove();
-        }
-    });
-});
 $('.detailProject').click(function () {
     $('#m-detailProject').modal('show');
     var itemData = {

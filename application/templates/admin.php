@@ -632,7 +632,11 @@
                             <div class="modal-body">
                                 <input type="text" id="edit_id_user" name="id_user" value="" style="display: none"/>
                                 e-mail пользователя<input type="text" id="edit_email_user" name="email_user" value=""/><br>
-                                Статус пользователя<input type="text" id="edit_status_user" name="status_user" value=""/><br>
+                                Статус пользователя<br>
+                                <p id="status_user_<?=$listUsers["id"]?>">
+                                    <input type="radio" name="status" value="1"> Администратор<Br>
+                                    <input type="radio" name="status" value="0"> Пользователь<Br>
+                                </p>
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-primary" id="edit_button_user">Сохранить</button>

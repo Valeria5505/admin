@@ -11,7 +11,6 @@ class Admin extends Core\Controller{
         $this->modelProject = new Application\Models\Project();
         $this->modelUsers = new Application\Models\User();
         $this->modelCurator = new Application\Models\Curator();
-        $this->modelConstants = new Application\Models\Constants();
         $this->modelRelease = new Application\Models\Release();
         $this->modelDatabase = new Application\Models\Database();
 
