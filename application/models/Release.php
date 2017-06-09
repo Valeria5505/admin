@@ -35,4 +35,16 @@ class Release extends Core\Model{
         $data = $stmt->fetchAll();
         return $data;
     }
+    public function getById($id)
+    {
+        $stmt = DB::getInstance()->query("
+        SELECT *
+        FROM `" . $this->tableName . "`
+        INNER JOIN project on `" . $this->tableName . "`.project=project.id        
+        WHERE project =".$id);
+
+        $stmt->execute();
+        $data = $stmt->fetchAll();
+        return $data;
+    }
 }

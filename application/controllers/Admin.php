@@ -155,4 +155,9 @@ class Admin extends Core\Controller{
         $detailProject = $this->modelProject->getById($_POST["id"]);
         echo json_encode($detailProject);
     }
+    function detailRelease(){
+        $this->modelRelease = new Application\Models\Release();
+        $detailRelease = $this->modelRelease->getById($_POST["id"]);
+        echo json_encode($detailRelease);
+    }
 }

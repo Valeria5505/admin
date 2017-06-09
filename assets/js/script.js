@@ -15,13 +15,13 @@ function start()
     }
     else
     {
-        if(prompt('Дурак введи пароль')==5505)
+        if(prompt('Введите пароль, пожалуйста')==5505)
         {
             window.localStorage['pass']=5505;
             $('#my_container').css('display','block');
         }
         else{
-            alert('Иди отсюда мой посуду!');
+            alert('Пароль не верный, доступ закрыт');
             // window.location='./';
         }
     }
@@ -357,8 +357,24 @@ $('.detailProject').click(function () {
         dataType:'json',
         data : itemData,
         success: function (data) {
-           $(".componDetailPr").html('<div class="row">            <div class="col-xs-6">Домен</div>                <div class="col-xs-6">'+data['subdomain']+'</div>            </div><br>            <div class="row">                <div class="col-xs-6">Название проекта</div>            <div class="col-xs-6">'+data['name']+'</div>            </div><br>            <div class="row">                <div class="col-xs-6">Дата добавления</div>            <div class="col-xs-6">'+data['date_add']+'</div>            </div><br>            <div class="row">                <div class="col-xs-6">Дата изменения</div>            <div class="col-xs-6">'+data['date_check']+'</div>            </div><br>            <div class="row">                <div class="col-xs-6">GitHub</div>                <div class="col-xs-6">'+data['git']+'</div>            </div><br>            <div class="row">                <div class="col-xs-6">Пользователь</div>                <div class="col-xs-6">'+data['email_user']+' '+ data['group']+'</div>            </div><br>            <div class="row">                <div class="col-xs-6">Статус</div>                <div class="col-xs-6">'+data['status_project']+'</div>            </div><br>            <div class="row">                <div class="col-xs-6">Куратор</div>                <div class="col-xs-6">'+data['name_curator']+'</div>            </div><br>            <div class="row">                <div class="col-xs-6">Логи</div>                <div class="col-xs-12">                </div>                </div><br>');
-
+            console.log(data);
+            console.log(itemData);
+            $.ajax({
+                url: 'admin/detailRelease',
+                type : 'POST',
+                dataType:'json',
+                data : itemData,
+                success: function (data1) {
+                    for(var i = 0 ; i<data1.length;i++)
+                    {
+                        var str = '<tr class="listRelease_'+data1[i]['id']+'"><td>'+data1[i]['subdomain']+'</td><td>'+data1[i]['date_time']+'</td><td>'+data1[i]['release_type']+'</td>                    <td>'+data1[i]['log']+'</td>                    </tr>';
+                        var str1=str1+str;
+                    }
+                    console.log(str1);
+                    $str2 = '<table class="table table-striped">                <thead>                <tr>                <th>Субдомен</th>                <th>Дата и время</th>            <th>Тип</th>            <th>Лог</th>            </tr>            </thead>            <tbody class="release_table">  '+str1+'            </tbody>            </table>';
+                    $(".componDetailPr").html('<div class="row">            <div class="col-xs-6">Домен</div>                <div class="col-xs-6">'+data['subdomain']+'</div>            </div><br>            <div class="row">                <div class="col-xs-6">Название проекта</div>            <div class="col-xs-6">'+data['name']+'</div>            </div><br>            <div class="row">                <div class="col-xs-6">Дата добавления</div>            <div class="col-xs-6">'+data['date_add']+'</div>            </div><br>            <div class="row">                <div class="col-xs-6">Дата изменения</div>            <div class="col-xs-6">'+data['date_check']+'</div>            </div><br>            <div class="row">                <div class="col-xs-6">GitHub</div>                <div class="col-xs-6">'+data['git']+'</div>            </div><br>            <div class="row">                <div class="col-xs-6">Пользователь</div>                <div class="col-xs-6">'+data['email_user']+' '+ data['group']+'</div>            </div><br>            <div class="row">                <div class="col-xs-6">Статус</div>                <div class="col-xs-6">'+data['status_project']+'</div>            </div><br>            <div class="row">                <div class="col-xs-6">Куратор</div>                <div class="col-xs-6">'+data['name_curator']+'</div>            </div><br>            <div class="row">                <div class="col-xs-6">Логи</div>                <div class="col-xs-12">       '+$str2+'         </div>                </div><br>');
+                }
+            });
         }
     });
 });

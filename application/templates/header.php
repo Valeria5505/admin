@@ -22,7 +22,7 @@
     <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
     <!-- 6. Подключить CSS виджета "Bootstrap datetimepicker" -->
     <link rel="stylesheet" href="assets/css/bootstrap-datetimepicker.min.css" />
-    <title>Главная страница сайта</title>
+    <title>Страница администратора веб хостинга</title>
 
 </head>
 
